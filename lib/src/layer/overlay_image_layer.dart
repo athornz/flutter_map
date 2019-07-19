@@ -2,11 +2,10 @@ import 'dart:async';
 import 'dart:ui';
 import 'dart:ui' as ui;
 
+import 'package:flutter/painting.dart' as img;
 import 'package:flutter/rendering.dart' as img;
 import 'package:flutter/services.dart' as img;
 import 'package:flutter/widgets.dart' as img;
-import 'package:flutter/painting.dart' as img;
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map/src/map/map.dart';
@@ -115,6 +114,8 @@ class OverlayImagePainter extends CustomPainter {
     canvas.clipRect(rect);
     var paint = Paint()
       ..color = Color.fromRGBO(255, 255, 255, overlayImageOpt.opacity);
+
+    if (overlayImageOpt.image == null) return;
 
     var imageSize = Size(overlayImageOpt.image.width.toDouble(),
         overlayImageOpt.image.height.toDouble());
